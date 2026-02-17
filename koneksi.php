@@ -1,5 +1,9 @@
 <?php
-$conn = mysqli_connect("localhost", "root", "root", "SKPP coba") or die ("Database tidak terhubung");
+$conn = mysqli_connect("localhost", "root", "root", "skpp");
+
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
 
 
 ?>
