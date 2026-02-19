@@ -1,38 +1,46 @@
 <?php
 session_start();
-include "koneksi.php";
-
-// Kalau sudah login, jangan boleh akses login lagi
-if (isset($_SESSION['username'])) {
-    header("Location: index.php");
-    exit;
-}
+require "koneksi.php";
 
 if (isset($_POST['login'])) {
-
     $username = trim($_POST['username']);
-    $password = trim($_POST['password']);
+    $password = $_POST['password'];
 
-    $result = mysqli_query($conn, 
-        "SELECT * FROM user WHERE username = '$username'");
-
-    if (mysqli_num_rows($result) === 1) {
-
-        $row = mysqli_fetch_assoc($result);
-
-        if (password_verify($password, $row['password'])) {
-
-            $_SESSION['username'] = $username;
-            header("Location: index.php");
-            exit;
-        }
+    if (empty($username) || empty($password)) {
+        echo "<script>alert('Username dan password harus diisi!');</script>";
+        exit;
     }
 
-    echo "<script>alert('Username atau password salah!');</script>";
+    $stmt = mysqli_prepare($conn, "SELECT id_user, username, password FROM user WHERE username = ?");
+    mysqli_stmt_bind_param($stmt, "s", $username);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_store_result($stmt);
+
+    if (mysqli_stmt_num_rows($stmt) === 1) {
+        mysqli_stmt_bind_result($stmt, $id_user, $username_db, $password_db);
+        
+        if (mysqli_stmt_fetch($stmt)) {
+            if (!is_null($password_db) && password_verify($password, $password_db)) {
+                $_SESSION['login'] = true;
+                $_SESSION['username'] = $username_db;
+                $_SESSION['id_user'] = $id_user;
+                echo "<script>
+                        alert('Login Berhasil!');
+                        document.location.href = 'index.php';
+                      </script>";
+                exit;
+            }
+        }
+    }
+    echo "<script>
+            alert('Username atau password salah!');
+          </script>";
+
+          mysqli_stmt_close($stmt);
 }
+
+
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
