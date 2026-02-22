@@ -18,7 +18,7 @@ if (isset($_POST['login'])) {
 
     if (mysqli_stmt_num_rows($stmt) === 1) {
         mysqli_stmt_bind_result($stmt, $id_user, $username_db, $password_db);
-        
+
         if (mysqli_stmt_fetch($stmt)) {
             if (!is_null($password_db) && password_verify($password, $password_db)) {
                 $_SESSION['login'] = true;
@@ -36,43 +36,67 @@ if (isset($_POST['login'])) {
             alert('Username atau password salah!');
           </script>";
 
-          mysqli_stmt_close($stmt);
+    mysqli_stmt_close($stmt);
 }
 
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/login.css">
 </head>
 
 <body>
 
-    <?php
+    <div class="phone-container">
 
+        <!-- Gradient Top -->
+        <div class="top-gradient"></div>
 
-    ?>
-    <form action="" method="post">
-        <ul>
-            <li>
-                <label for="username">Username : </label>
-                <input type="text" name="username" id="username">
-            </li>
-            <li>
-                <label for="password">Password : </label>
-                <input type="password" name="password" id="password">
-            </li>
-            <li>
-                <button type="submit" name="login">Login</button>
-                <a href="regis.php">Registrasi</a>
-            </li>
-        </ul>
-    </form>
+        <!-- Login Card -->
+        <div class="login-card">
+            <h2>Login</h2>
+
+            <form action="" method="post">
+
+                <label>Username</label>
+                <input type="text" name="username" placeholder="Masukkan Username">
+
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Masukkan Password">
+
+                <div class="row">
+                    <div class="remember">
+                        <input type="checkbox">
+                        <span>Ingat Saya</span>
+                    </div>
+                    <a href="#">Lupa Password</a>
+                </div>
+
+                <button type="submit" name="login" class="btn-login">
+                    Login
+                </button>
+
+                <button type="button" class="btn-google">
+                    <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="google">
+                    Masuk dengan Google
+                </button>
+
+            </form>
+        </div>
+
+    </div>
+
 </body>
 
 </html>

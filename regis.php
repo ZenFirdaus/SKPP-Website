@@ -78,42 +78,54 @@ if (isset($_POST['register'])) {
 
 
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halaman Registrasi</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/regis.css">
 </head>
-
 <body>
-    <h1>Registrasi</h1>
 
-    <form action="" method="post">
+  <div class="phone-container">
 
-        <ul>
-            <li>
-                <label for="username">Username : </label>
-                <input type="text" name="username" id="username">
-            </li>
-            <li>
-                <label for="email">E-mail : </label>
-                <input type="text" name="email" id="email">
-            </li>
-            <li>
-                <label for="password">Password : </label>
-                <input type="password" name="password" id="password">
-            </li>
-            <li>
-                <label for="konfirmasi_password">Konfirmasi Password : </label>
-                <input type="password" name="konfirmasi_password" id="konfirmasi_password">
-            </li>
-            <li>
-                <button type="submit" name="register">Register</button>
-                <a href="login.php">Login</a>
-            </li>
-        </ul>
-    </form>
+    <!-- Gradient Top -->
+    <div class="top-gradient"></div>
+
+    <!-- Register Card -->
+    <div class="login-card">
+      <h2>Register</h2>
+
+      <form action="" method="post">
+
+        <label>Username</label>
+        <input type="text" name="username" placeholder="Masukkan Username">
+
+        <label>E-mail</label>
+        <input type="email" name="email" placeholder="Masukkan E-mail">
+
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Masukkan Password">
+
+        <label>Konfirmasi Password</label>
+        <input type="password" name="konfirmasi_password" placeholder="Konfirmasi Password">
+
+        <button type="submit" name="register" class="btn-login">
+          Register
+        </button>
+
+        <div class="register-link">
+          Sudah punya akun? <a href="login.php">Login</a>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+
 </body>
-
 </html>

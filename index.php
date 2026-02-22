@@ -20,8 +20,8 @@ if (!isset($_SESSION['login'])) {
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="index.css">
-    
+    <link rel="stylesheet" href="css/index.css">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
@@ -45,36 +45,47 @@ if (!isset($_SESSION['login'])) {
         </div>
 
         <div class="menu-grid">
-            <div class="menu-item pengajuan">
-                <div class="icon-placeholder"></div>
-                Pengajuan
-            </div>
+            <a href="pengajuan.php">
+                <div class="menu-item pengajuan">
+                    <div class="icon-placeholder"></div>
+                    Pengajuan
+                </div>
+            </a>
 
-            <div class="menu-item catat">
-                <div class="icon-placeholder"></div>
-                Catat Data
-            </div>
+            <a href="catatdata.php">
+                <div class="menu-item catat">
+                    <div class="icon-placeholder"></div>
+                    Catat Data
+                </div>
+            </a>
 
-            <div class="menu-item cek">
-                <div class="icon-placeholder"></div>
-                Pengecekan
-            </div>
+            <a href="pengecekan.php">
+                <div class="menu-item cek">
+                    <div class="icon-placeholder"></div>
+                    Pengecekan
+                </div>
+            </a>
 
-            <div class="menu-item draft">
-                <div class="icon-placeholder"></div>
-                Draft SKPP
-            </div>
+            <a href="draft.php">
+                <div class="menu-item draft">
+                    <div class="icon-placeholder"></div>
+                    Draft SKPP
+                </div>
+            </a>
 
-            <div class="menu-item arsip">
-                <div class="icon-placeholder"></div>
-                Arsip
-            </div>
+            <a href="arsip.php">
+                <div class="menu-item arsip">
+                    <div class="icon-placeholder"></div>
+                    Arsip
+                </div>
+            </a>
 
-            <div class="menu-item unduh">
-                <div class="icon-placeholder"></div>
-                Unduh SKPP
-            </div>
-
+            <a href="unduh.php">
+                <div class="menu-item unduh">
+                    <div class="icon-placeholder"></div>
+                    Unduh SKPP
+                </div>
+            </a>
         </div>
 
     </div>

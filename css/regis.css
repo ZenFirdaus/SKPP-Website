@@ -1,0 +1,154 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Container seperti layar HP */
+.phone-container {
+  width: 375px;
+  height: 812px;
+  background: #dcdcdc;
+  border-radius: 25px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Gradient atas */
+.top-gradient {
+  height: 280px;
+  background: linear-gradient(180deg, #1a8db3, #1b7fa2);
+}
+
+/* Card */
+.login-card {
+  position: absolute;
+  top: 200px;
+  width: 100%;
+  background: #e5e5e5;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  padding: 40px 30px;
+}
+
+/* Judul */
+.login-card h2 {
+  text-align: center;
+  color: #1a8db3;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+/* Label */
+.login-card label {
+  display: block;
+  color: #1a8db3;
+  font-size: 16px;
+  margin-bottom: 8px;
+  margin-top: 15px;
+}
+
+/* Input */
+.login-card input[type="text"],
+.login-card input[type="password"] {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 30px;
+  border: none;
+  background: #cfd3d7;
+  font-size: 14px;
+  margin-bottom: 5px;
+  outline: none;
+}
+
+/* Row remember & lupa */
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 15px 0 25px 0;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.remember input {
+  width: 18px;
+  height: 18px;
+}
+
+.row a {
+  color: #1a8db3;
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+/* Button Login */
+.btn-login {
+  width: 100%;
+  padding: 14px;
+  border-radius: 30px;
+  border: none;
+  background: #1686ad;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 25px;
+  transition: 0.3s;
+}
+
+.btn-login:hover {
+  background: #0f6f90;
+}
+
+/* Button Google */
+.btn-google {
+  width: 100%;
+  padding: 12px;
+  border-radius: 30px;
+  border: 2px solid #1686ad;
+  background: transparent;
+  color: #1686ad;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-google img {
+  width: 22px;
+}
+
+.btn-google:hover {
+  background: #1686ad;
+  color: white;
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.register-link a {
+  color: #1686ad;
+  text-decoration: underline;
+  font-weight: 500;
+}
