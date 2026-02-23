@@ -3,7 +3,7 @@ session_start();
 require "koneksi.php";
 
 if (!isset($_SESSION['login'])) {
-    header ("location: login.php");
+    header("location: login.php");
     exit;
 }
 
@@ -19,7 +19,7 @@ if (isset($_POST['lanjut'])) {
 
     // Simpan data ke database
     $query = "INSERT INTO pengajuan (nama_lengkap, alamat, email, ksk, tanggal, no_skpp, jenis_pengajuan) VALUES ('$nama_lengkap', '$alamat', '$email', '$ksk', '$tanggal', '$no_skpp', '$jenis_pengajuan')";
-    
+
     if (mysqli_query($conn, $query)) {
         echo "<script>alert('Pengajuan berhasil disimpan!');</script>";
         // Redirect ke halaman berikutnya jika diperlukan
@@ -37,40 +37,61 @@ if (isset($_POST['lanjut'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pengajuan</title>
+
+    <link rel="stylesheet" href="css/pengajuan.css">
 </head>
+
 <body>
-    <form action="" method="post">
-        <label for="nama_lengkap">Nama Lengkap:</label>
-        <input type="text" id="nama_lengkap" name="nama_lengkap" required><br><br>
 
-        <label for="alamat">Alamat:</label>
-        <input type="text" id="alamat" name="alamat" required><br><br>
+    <div class="phone-container">
 
-        <label for="email">E-mail:</label>
-        <input type="text" id="email" name="email" required><br><br>
+        <div class="top-gradient"></div>
 
-        <label for="ksk">Kode Satuan Kerja:</label>
-        <input type="text" id="ksk" name="ksk" required><br><br>
+        <div class="form-card">
+            <h2>Form Pengajuan</h2>
 
-        <label for="tanggal">Tanggal Pengajuan:</label>
-        <input type="date" id="tanggal" name="tanggal" required><br><br>
+            <form action="" method="post">
 
-        <label for="no_skpp">Nomor SKPP:</label>
-        <input type="text" id="no_skpp" name="no_skpp" required><br><br>
+                <label>Nama Lengkap</label>
+                <input type="text" name="nama_lengkap" required>
 
-        <label for="jenis_pengajuan">Jenis Pengajuan:</label>
-        <select id="jenis_pengajuan" name="jenis_pengajuan" required>
-            <option value="">Pilih Jenis Pengajuan</option>
-            <option value="SKPP Baru">SKPP Baru</option>
-            <option value="Perpanjangan SKPP">Perpanjangan SKPP</option>
-            <option value="Perubahan Data SKPP">Perubahan Data SKPP</option>
-        </select><br><br>
+                <label>Alamat</label>
+                <input type="text" name="alamat" required>
 
-        <button type="submit" name="lanjut">Lanjut</button>
-    </form>
+                <label>E-mail</label>
+                <input type="email" name="email" required>
+
+                <label>Kode Satuan Kerja</label>
+                <input type="text" name="ksk" required>
+
+                <label>Tanggal Pengajuan</label>
+                <input type="date" name="tanggal" required>
+
+                <label>Nomor SKPP</label>
+                <input type="text" name="no_skpp" required>
+
+                <label>Jenis Pengajuan</label>
+                <select name="jenis_pengajuan" required>
+                    <option value="">Pilih Jenis Pengajuan</option>
+                    <option value="SKPP Baru">SKPP Baru</option>
+                    <option value="Perpanjangan SKPP">Perpanjangan SKPP</option>
+                    <option value="Perubahan Data SKPP">Perubahan Data SKPP</option>
+                </select>
+
+                <button type="submit" name="lanjut" class="btn-submit">
+                    Lanjut
+                </button>
+
+            </form>
+        </div>
+
+    </div>
+
 </body>
+
 </html>

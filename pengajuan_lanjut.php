@@ -14,7 +14,6 @@ require "koneksi.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pengajuan SIMUDAH</title>
 
-    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
@@ -31,54 +30,49 @@ require "koneksi.php";
 
         <!-- Slip -->
         <div class="card">
-            <div class="card-title">
-                <i class="fa-solid fa-file-lines slip"></i>
-                <div class="upload-group">
-                    <div>
-                        Upload Slip Gaji<br>
-                        <small>PDF max 2MB</small>
-                    </div>
-                    <div class="file-info" id="slipInfo"></div>
-                    <div class="error-message" id="slipError"></div>
-                </div>
-            </div>
-            <input type="file" id="slip" accept="application/pdf" onchange="checkForm()">
+    <div class="card-title">
+        <i class="fa-solid fa-file-lines slip"></i>
+        <div class="text-label">
+            Upload Slip Gaji<br>
+            <small>PDF max 2MB</small>
         </div>
+    </div>
+    <div class="upload-group">
+        <input type="file" id="slip" accept="application/pdf">
+        <div class="file-info" id="slipInfo"></div>
+        <div class="error-message" id="slipError"></div>
+    </div>
+</div>
 
-
-
-        <!-- SK -->
-        <div class="card">
-            <div class="card-title">
-                <i class="fa-solid fa-file-lines sk"></i>
-                <div class="upload-group">
-                    <div>
-                        Upload SK<br>
-                        <small>PDF max 2MB</small>
-                    </div>
-                    <div class="file-info" id="skInfo"></div>
-                    <div class="error-message" id="skError"></div>
-                </div>
-            </div>
-            <input type="file" id="sk" accept="application/pdf" onchange="checkForm()">
+<div class="card">
+    <div class="card-title">
+        <i class="fa-solid fa-file-lines sk"></i>
+        <div>
+            Upload SK<br>
+            <small>PDF max 2MB</small>
         </div>
+    </div>
+    <div class="upload-group">
+        <input type="file" id="sk" accept="application/pdf">
+        <div class="file-info" id="skInfo"></div>
+        <div class="error-message" id="skError"></div>
+    </div>
+</div>
 
-        <!-- Surat -->
-        <div class="card">
-            <div class="card-title">
-                <i class="fa-solid fa-file-lines surat"></i>
-                <div class="upload-group">
-                    <div>
-                        Upload Surat Pengantar<br>
-                        <small>PDF max 2MB</small>
-                    </div>
-                    <div class="file-info" id="suratInfo"></div>
-                    <div class="error-message" id="suratError"></div>
-
-                </div>
-            </div>
-            <input type="file" id="surat" accept="application/pdf" onchange="checkForm()">
+<div class="card">
+    <div class="card-title">
+        <i class="fa-solid fa-file-lines surat"></i>
+        <div>
+            Upload Surat Pengantar<br>
+            <small>PDF max 2MB</small>
         </div>
+    </div>
+    <div class="upload-group">
+        <input type="file" id="surat" accept="application/pdf">
+        <div class="file-info" id="suratInfo"></div>
+        <div class="error-message" id="suratError"></div>
+    </div>
+</div>
 
         <button class="submit-btn" id="submitBtn" onclick="saveData()" disabled>Kirim</button>
 

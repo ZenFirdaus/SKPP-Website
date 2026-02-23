@@ -15,7 +15,8 @@ body{
 
 .mobile-container{
     width:360px;
-    height:720px;
+    max-height:720px; /* ganti height jadi max-height */
+    height:100vh;
     background:#d9dde3;
     border-radius:25px;
     box-shadow:0 0 50px rgba(0,0,0,0.7);
@@ -42,11 +43,9 @@ body{
     box-shadow:0 4px 15px rgba(0,0,0,0.05);
 }
 
-.card-title{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-bottom:10px;
+
+.text-label {
+    line-height: 1.2;
 }
 
 .card-title i{
@@ -60,14 +59,14 @@ body{
 .sk{background:#ff6b6b;}
 .surat{background:#f5a623;}
 
-input[type="file"]{
+/* input[type="file"]{
     width:100%;
     padding:8px;
     border:2px dashed #ccc;
     border-radius:12px;
     background:#e8e8e8;
     font-size:12px;
-}
+} */
 
 .submit-btn{
     width:85%;
@@ -179,10 +178,10 @@ input[type="file"]{
     margin-bottom:10px;
 }
 
-.error-message{
-    color: #ff4d4d;
-    font-size: 12px;
-    margin-top: 5px;
+.error-message {
+    color: #e74c3c;
+    font-size: 11px;
+    margin-top: 4px;
 }
 
 .file-info{
@@ -217,9 +216,7 @@ input[type="file"]{
     font-size: 8px;
 }
 
-input[type="file"] {
-  display: none;
-}
+
 
 .file-wrapper {
   border: 2px dashed #ccc;
@@ -249,3 +246,85 @@ input[type="file"] {
 .file-actions i:hover {
   color: red;
 }
+
+
+.card-title{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:10px;
+}
+
+.upload-group {
+    width: 100%;
+    margin-top: 5px;
+}
+
+input[type="file"] {
+    display: block; /* Memastikan dia mengambil ruang */
+    width: 100%;
+    padding: 8px;
+    background: #ffffff; /* Putih agar kontras dengan card abu-abu */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+input[type="file"]:hover {
+    border-color: #1686b3;
+    background: #f0f8ff;
+}
+
+/* Upload Group Fix */
+.upload-group{
+    width:100%;
+    margin-top:8px;
+}
+
+/* Wrapper upload */
+.file-wrapper{
+    width:100%;
+    border:2px dashed #ccc;
+    padding:12px;
+    border-radius:12px;
+    background:#fff;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+/* Hidden input */
+.file-wrapper input[type="file"]{
+    display:none;
+}
+
+/* Placeholder text */
+.file-placeholder{
+    font-size:12px;
+    color:#777;
+}
+
+/* File name */
+.file-name{
+    font-size:12px;
+    color:#333;
+}
+
+/* Icon buttons */
+.file-actions{
+    display:flex;
+    gap:10px;
+}
+
+.file-actions i{
+    cursor:pointer;
+    font-size:16px;
+}
+
+.file-actions i:hover{
+    color:#e74c3c;
+}
+
+
+

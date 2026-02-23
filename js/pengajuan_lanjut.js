@@ -86,54 +86,48 @@ function isPDF(file) {
 const maxSize = 2 * 1024 * 1024;
 
 function validateFile(input, errorEl, infoEl) {
-  const file = input.files[0];
+    const file = input.files[0];
+    errorEl.textContent = "";
+    infoEl.innerHTML = "";
 
-  errorEl.textContent = "";
-  infoEl.innerHTML = "";
+    if (!file) {
+        checkForm();
+        return;
+    }
 
-  if (!file) {
+  // Validasi Format
+    if (file.type !== "application/pdf") {
+        errorEl.textContent = "File harus PDF!";
+        input.value = "";
+        checkForm();
+        return;
+    }
+
+  // Validasi Ukuran
+    if (file.size > 2 * 1024 * 1024) {
+        errorEl.textContent = "Ukuran maksimal 2MB!";
+        input.value = "";
+        checkForm();
+        return;
+    }
+
+  // Jika Valid, munculkan info file dan tombol hapus
+    infoEl.innerHTML = `
+        <div class="file-name-container" style="display:flex; justify-content:space-between; align-items:center; margin-top:5px; background:#eef; padding:5px 10px; border-radius:5px;">
+            <span style="font-size:12px; color:#333;">${file.name}</span>
+            <i class="fa-solid fa-trash" style="color:red; cursor:pointer;" onclick="deleteFile('${input.id}')"></i>
+        </div>
+    `;
+
     checkForm();
-    return;
-  }
-
-  // CEK PDF
-  if (file.type !== "application/pdf") {
-    errorEl.textContent = "File harus PDF!";
-    input.value = "";
-    checkForm();
-    return;
-  }
-
-  // CEK SIZE
-  if (file.size > maxSize) {
-    errorEl.textContent = "Ukuran maksimal 2MB!";
-    input.value = "";
-    checkForm();
-    return;
-  }
-
-  // Kalau valid
-  document.getElementById(input.id + "Text").textContent = file.name;
-
-infoEl.innerHTML = `
-    <i class="fa-solid fa-pen" onclick="renameFile('${input.id}')"></i>
-    <i class="fa-solid fa-trash" onclick="deleteFile('${input.id}')"></i>
-`;
-
-
-  checkForm();
 }
 
 function deleteFile(id) {
-  const input = document.getElementById(id);
-  const info = document.getElementById(id + "Info");
-  const text = document.getElementById(id + "Text");
-
-  input.value = "";
-  info.innerHTML = "";
-  text.textContent = "Upload File (PDF)";
-
-  checkForm();
+    const input = document.getElementById(id);
+    const info = document.getElementById(id + "Info");
+    input.value = "";
+    info.innerHTML = "";
+    checkForm();
 }
 
 
@@ -147,6 +141,10 @@ function renameFile(id) {
     info.querySelector("span").textContent = newName + ".pdf";
   }
 }
+
+slip.addEventListener("change", () => validateFile(slip, document.getElementById("slipError"), document.getElementById("slipInfo")));
+sk.addEventListener("change", () => validateFile(sk, document.getElementById("skError"), document.getElementById("skInfo")));
+surat.addEventListener("change", () => validateFile(surat, document.getElementById("suratError"), document.getElementById("suratInfo")));
 
 slip.addEventListener("change", () => {
   validateFile(

@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Frame Mobile */
+.phone-container {
+  width: 375px;
+  height: 812px;
+  background: #dcdcdc;
+  border-radius: 25px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Gradient Atas */
+.top-gradient {
+  height: 220px;
+  background: linear-gradient(180deg, #1a8db3, #1b7fa2);
+}
+
+/* Card */
+.form-card {
+  position: absolute;
+  top: 150px;
+  width: 100%;
+  background: #e5e5e5;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  padding: 30px 25px;
+  height: calc(100% - 150px);
+  overflow-y: auto;
+}
+
+/* Judul */
+.form-card h2 {
+  text-align: center;
+  color: #1a8db3;
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+/* Label */
+.form-card label {
+  display: block;
+  color: #1a8db3;
+  font-size: 14px;
+  margin-bottom: 6px;
+  margin-top: 12px;
+}
+
+/* Input & Select */
+.form-card input,
+.form-card select {
+  width: 100%;
+  padding: 12px 18px;
+  border-radius: 30px;
+  border: none;
+  background: #cfd3d7;
+  font-size: 13px;
+  outline: none;
+  margin-bottom: 5px;
+
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* Button */
+.btn-submit {
+  width: 100%;
+  padding: 12px;
+  border-radius: 30px;
+  border: none;
+  background: #1686ad;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+.btn-submit:hover {
+  background: #0f6f90;
+}
