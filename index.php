@@ -33,7 +33,7 @@ if (!isset($_SESSION['login'])) {
             <div class="header-top">
                 <div class="profile">
                     <div class="profile-icon"></div>
-                    <div class="username">Halo, Username</div>
+                    <div class="username">Halo, <?php echo $_SESSION['username']; ?></div>
                 </div>
                 <div>⚙️ ⋮</div>
             </div>
@@ -45,42 +45,42 @@ if (!isset($_SESSION['login'])) {
         </div>
 
         <div class="menu-grid">
-            <a href="pengajuan.php">
+            <a href="pengajuan.php" style="text-decoration: none;">
                 <div class="menu-item pengajuan">
                     <div class="icon-placeholder"></div>
                     Pengajuan
                 </div>
             </a>
 
-            <a href="catatdata.php">
+            <a href="catatdata.php" style="text-decoration: none;">
                 <div class="menu-item catat">
                     <div class="icon-placeholder"></div>
                     Catat Data
                 </div>
             </a>
 
-            <a href="pengecekan.php">
+            <a href="pengecekan.php" style="text-decoration: none;">
                 <div class="menu-item cek">
                     <div class="icon-placeholder"></div>
                     Pengecekan
                 </div>
             </a>
 
-            <a href="draft.php">
+            <a href="draft.php" style="text-decoration: none;">
                 <div class="menu-item draft">
                     <div class="icon-placeholder"></div>
                     Draft SKPP
                 </div>
             </a>
 
-            <a href="arsip.php">
+            <a href="arsip.php" style="text-decoration: none;">
                 <div class="menu-item arsip">
                     <div class="icon-placeholder"></div>
                     Arsip
                 </div>
             </a>
 
-            <a href="unduh.php">
+            <a href="unduh.php" style="text-decoration: none;">
                 <div class="menu-item unduh">
                     <div class="icon-placeholder"></div>
                     Unduh SKPP

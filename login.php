@@ -2,6 +2,23 @@
 session_start();
 require "koneksi.php";
 
+// CEK COOKIE
+if (isset($_COOKIE['id']) && isset($_COOKIE['key'])) {
+    $id = $_COOKIE['id'];
+    $key = $_COOKIE['key'];
+
+    // Ambil username berdasarkan ID dari database
+    $result = mysqli_query($conn, "SELECT username FROM user WHERE id_user = $id");
+    $row = mysqli_fetch_assoc($result);
+
+    // Cek apakah cookie 'key' cocok dengan hash username
+    if ($key === hash('sha256', $row['username'])) {
+        $_SESSION['login'] = true;
+        $_SESSION['id_user'] = $id;
+        $_SESSION['username'] = $row['username'];
+    }
+}
+
 if (isset($_POST['login'])) {
     $username = trim($_POST['username']);
     $password = $_POST['password'];
@@ -36,8 +53,31 @@ if (isset($_POST['login'])) {
             alert('Username atau password salah!');
           </script>";
 
+          // ... kode setelah password_verify sukses ...
+if (password_verify($password, $password_db)) {
+    $_SESSION['login'] = true;
+    $_SESSION['username'] = $username_db;
+    $_SESSION['id_user'] = $id_user;
+
+    // FITUR INGAT SAYA (REMEMBER ME)
+    if (isset($_POST['remember'])) {
+        // Buat cookie yang berlaku selama 30 hari
+        // hash('sha256', ...) digunakan agar ID user tidak terlihat telanjang di browser
+        setcookie('id', $id_user, time() + (60 * 60 * 24 * 30), "/");
+        setcookie('key', hash('sha256', $username_db), time() + (60 * 60 * 24 * 30), "/");
+    }
+
+    echo "<script>
+            alert('Login Berhasil!');
+            document.location.href = 'index.php';
+          </script>";
+    exit;
+}
+
     mysqli_stmt_close($stmt);
 }
+
+
 
 
 ?>
@@ -82,8 +122,8 @@ if (isset($_POST['login'])) {
 
                 <div class="row">
                     <div class="remember">
-                        <input type="checkbox">
-                        <span>Ingat Saya</span>
+                        <input type="checkbox" id="rememberCheckbox" name="remember">
+                        <label for="rememberCheckbox">Ingat Saya</label>
                     </div>
                     <a href="#">Lupa Password</a>
                 </div>

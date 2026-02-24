@@ -32,7 +32,7 @@ body {
 /* Card */
 .login-card {
   position: absolute;
-  top: 200px;
+  top: 170px;
   width: 100%;
   background: #e5e5e5;
   border-top-left-radius: 60px;
@@ -58,29 +58,30 @@ body {
   margin-top: 15px;
 }
 
-/* Input */
+/* Gabungkan semua input jadi satu blok saja */
 .login-card input[type="text"],
 .login-card input[type="email"],
 .login-card input[type="password"] {
-  width: 100%;
+  display: block;
+  width: 100%; /* Gunakan 100% agar memenuhi container card */
   padding: 14px 20px;
   border-radius: 30px;
-
-  border: none !important;
-  outline: none !important;
-  background: #cfd3d7 !important;
-
+  border: none;
+  outline: none;
+  background: #cfd3d7;
   font-size: 14px;
-  margin-bottom: 5px;
-
-  -webkit-appearance: none;
-  appearance: none;
+  margin-bottom: 15px; /* Tambah jarak antar input */
+  
+  /* Box-sizing memastikan padding 20px masuk ke dalam hitungan width 100% */
+  box-sizing: border-box; 
 }
+
+/* Hapus blok ".login-card input" yang menggunakan all: unset karena itu merusak layout */
 
 .login-card input {
   all: unset;
   display: block;
-  width: 100%;
+  width: 80%;
   padding: 14px 20px;
   border-radius: 30px;
   background: #cfd3d7;
@@ -88,24 +89,7 @@ body {
   margin-bottom: 5px;
 }
 
-/* Row remember & lupa */
-.row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 15px 0 25px 0;
-}
 
-.remember {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.remember input {
-  width: 18px;
-  height: 18px;
-}
 
 .row a {
   color: #1a8db3;
@@ -125,37 +109,12 @@ body {
   font-weight: 500;
   cursor: pointer;
   margin-bottom: 20px;
+  margin-top: 20px;
   transition: 0.3s;
 }
 
 .btn-login:hover {
   background: #0f6f90;
-}
-
-/* Button Google */
-.btn-google {
-  width: 100%;
-  padding: 12px;
-  border-radius: 30px;
-  border: 2px solid #1686ad;
-  background: transparent;
-  color: #1686ad;
-  font-size: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.btn-google img {
-  width: 22px;
-}
-
-.btn-google:hover {
-  background: #1686ad;
-  color: white;
 }
 
 .register-link {
@@ -168,4 +127,25 @@ body {
   color: #1686ad;
   text-decoration: underline;
   font-weight: 500;
+}
+
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrapper input {
+  width: 100% !important;
+  padding-right: 45px !important;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%); /* Pas di tengah vertikal */
+  cursor: pointer;
+  color: #1a8db3;
+  font-size: 20px; /* Ukuran ikon */
+  line-height: 0;  /* Mencegah pergeseran vertikal karena line-height */
 }
