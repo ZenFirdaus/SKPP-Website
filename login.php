@@ -54,6 +54,8 @@ if (isset($_POST['login'])) {
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/login.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body>
@@ -73,7 +75,10 @@ if (isset($_POST['login'])) {
                 <input type="text" name="username" placeholder="Masukkan Username">
 
                 <label>Password</label>
-                <input type="password" name="password" placeholder="Masukkan Password">
+                <div class="password-wrapper">
+                    <input type="password" name="password" id="passInput" placeholder="Masukkan Password">
+                    <i class="bi bi-eye eye-icon" id="togglePassword"></i>
+                </div>
 
                 <div class="row">
                     <div class="remember">
@@ -96,6 +101,20 @@ if (isset($_POST['login'])) {
         </div>
 
     </div>
+
+    <script>
+        const passInput = document.getElementById('passInput');
+        const togglePassword = document.getElementById('togglePassword');
+
+        togglePassword.addEventListener('click', function() {
+            const type = passInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passInput.setAttribute('type', type);
+
+            // Ganti class icon secara dinamis
+            this.classList.toggle('bi-eye');
+            this.classList.toggle('bi-eye-slash');
+        });
+    </script>
 
 </body>
 
