@@ -42,6 +42,12 @@ body {
     align-items: center;
 }
 
+.header-icons {
+    display: flex;
+    gap: 15px;
+    font-size: 20px;
+}
+
 /* .profile {
     display: flex;
     align-items: center;
@@ -61,12 +67,29 @@ body {
 }
 
 /* WELCOME CARD */
+/* Update bagian welcome-card dan welcome-image */
 .welcome-card {
-    background: #f3f3f3;
+    position: relative; /* Penting untuk mengatur posisi gambar di dalamnya */
+    background: #ffffff;
     width: 90%;
     margin: -60px auto 30px;
-    padding: 20px;
-    border-radius: 25px;
+    padding: 25px;
+    border-radius: 30px;
+    min-height: 160px; /* Memberi ruang agar teks tidak tertutup gambar */
+    overflow: hidden;  /* Agar gambar tidak keluar dari radius card */
+}
+
+.welcome-image {
+    position: absolute;
+    right: -10px;      /* Menempel ke kanan */
+    bottom: -10px;     /* Menempel ke bawah */
+}
+
+.welcome-image img {
+    width: 130px;      /* Ukuran diperkecil agar pas seperti di contoh */
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
 .welcome-card h1 {
@@ -111,14 +134,7 @@ body {
 }
 
 /* ICON PLACEHOLDER */
-.icon-placeholder {
-    text-decoration: none;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.25);
-    margin-bottom: 12px;
-}
+
 
 /* WARNA MENU */
 .pengajuan {
@@ -145,45 +161,27 @@ body {
     background: linear-gradient(135deg, #ff8fa3, #f65b82);
 }
 
+/* Cari bagian ini di CSS kamu dan ubah nilainya */
+.icon-placeholder i {
+    font-size: 40px !important; /* Diperbesar dari 32px ke 40px */
+    color: white !important;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Pastikan lingkarannya juga menyesuaikan jika ingin lebih luas */
 .icon-placeholder {
-    width: 60px;
-    height: 60px;
+    width: 80px;  /* Sedikit diperbesar agar icon tidak sesak */
+    height: 80px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.25);
     margin-bottom: 12px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
-    font-size: 22px;
-    color: white;
-}
-
-/* ICON PER MENU */
-.pengajuan .icon-placeholder::before {
-    content: "\f15c"; /* file-lines */
-}
-
-.catat .icon-placeholder::before {
-    content: "\f304"; /* pen */
-}
-
-.cek .icon-placeholder::before {
-    content: "\f46c"; /* clipboard-check */
-}
-
-.draft .icon-placeholder::before {
-    content: "\f002"; /* magnifying glass */
-}
-
-.arsip .icon-placeholder::before {
-    content: "\f07c"; /* folder-open */
-}
-
-.unduh .icon-placeholder::before {
-    content: "\f02f"; /* print */
+    box-shadow: inset 0 0 20px rgba(255,255,255,0.2);
 }
 
 /* BOTTOM NAV */
@@ -227,6 +225,12 @@ body {
     color: #1686b3;
 }
 
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 .profile-icon {
     width: 45px;
     height: 45px;
@@ -239,9 +243,19 @@ body {
 }
 
 .profile-icon::before {
-    content: "\f007"; /* Font Awesome user icon */
+    content: "\f007";
     font-family: "Font Awesome 6 Free";
     font-weight: 900;
     color: white;
-    font-size: 20px;
+    font-size: 22px;
+}
+
+/*  */
+
+.menu-item {
+    font-size: 16px;
+}
+
+.icon-placeholder i {
+    font-size: 32px !important;
 }
