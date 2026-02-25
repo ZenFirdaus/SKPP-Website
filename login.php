@@ -53,26 +53,26 @@ if (isset($_POST['login'])) {
             alert('Username atau password salah!');
           </script>";
 
-          // ... kode setelah password_verify sukses ...
-if (password_verify($password, $password_db)) {
-    $_SESSION['login'] = true;
-    $_SESSION['username'] = $username_db;
-    $_SESSION['id_user'] = $id_user;
+    // ... kode setelah password_verify sukses ...
+    if (password_verify($password, $password_db)) {
+        $_SESSION['login'] = true;
+        $_SESSION['username'] = $username_db;
+        $_SESSION['id_user'] = $id_user;
 
-    // FITUR INGAT SAYA (REMEMBER ME)
-    if (isset($_POST['remember'])) {
-        // Buat cookie yang berlaku selama 30 hari
-        // hash('sha256', ...) digunakan agar ID user tidak terlihat telanjang di browser
-        setcookie('id', $id_user, time() + (60 * 60 * 24 * 30), "/");
-        setcookie('key', hash('sha256', $username_db), time() + (60 * 60 * 24 * 30), "/");
-    }
+        // FITUR INGAT SAYA (REMEMBER ME)
+        if (isset($_POST['remember'])) {
+            // Buat cookie yang berlaku selama 30 hari
+            // hash('sha256', ...) digunakan agar ID user tidak terlihat telanjang di browser
+            setcookie('id', $id_user, time() + (60 * 60 * 24 * 30), "/");
+            setcookie('key', hash('sha256', $username_db), time() + (60 * 60 * 24 * 30), "/");
+        }
 
-    echo "<script>
+        echo "<script>
             alert('Login Berhasil!');
             document.location.href = 'index.php';
           </script>";
-    exit;
-}
+        exit;
+    }
 
     mysqli_stmt_close($stmt);
 }
@@ -137,6 +137,9 @@ if (password_verify($password, $password_db)) {
                     Masuk dengan Google
                 </button>
 
+                <div class="register-link">
+                    Belum punya akun? <a href="register.php">Daftar Sekarang</a>
+                </div>
             </form>
         </div>
 

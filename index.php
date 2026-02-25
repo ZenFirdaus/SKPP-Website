@@ -21,7 +21,7 @@ if (!isset($_SESSION['login'])) {
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/index.css">
-
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
@@ -35,7 +35,8 @@ if (!isset($_SESSION['login'])) {
                     <div class="profile-icon"></div>
                     <div class="username">Halo, <?php echo $_SESSION['username']; ?></div>
                 </div>
-                <div>⚙️ ⋮</div>
+                <div><i class="fa-solid fa-gear"></i></div>
+                <div><i class="fa-solid fa-ellipsis-vertical"></i></div>
             </div>
         </div>
 
@@ -91,11 +92,9 @@ if (!isset($_SESSION['login'])) {
     </div>
 
     <div class="bottom-nav">
-        <div class="nav-icon active">
-            <i class="bi bi-house-door-fill"></i>
-        </div>
-        <div class="nav-icon">➕</div>
-        <div class="nav-icon">👤</div>
+        <i class="fa-solid fa-house nav-icon active"></i>
+        <i class="fa-solid fa-plus nav-icon"></i>
+        <i class="fa-solid fa-user nav-icon"></i>
     </div>
 
 </body>

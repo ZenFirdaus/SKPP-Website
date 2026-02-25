@@ -168,3 +168,15 @@ body {
   font-size: 20px; /* Ukuran ikon */
   line-height: 0;  /* Mencegah pergeseran vertikal karena line-height */
 }
+
+.register-link {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.register-link a {
+  color: #1686ad;
+  text-decoration: underline;
+  font-weight: 500;
+}

@@ -42,7 +42,7 @@ body {
     align-items: center;
 }
 
-.profile {
+/* .profile {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -53,7 +53,7 @@ body {
     height: 45px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.4);
-}
+} */
 
 .username {
     font-size: 16px;
@@ -145,19 +145,77 @@ body {
     background: linear-gradient(135deg, #ff8fa3, #f65b82);
 }
 
+.icon-placeholder {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    margin-bottom: 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 22px;
+    color: white;
+}
+
+/* ICON PER MENU */
+.pengajuan .icon-placeholder::before {
+    content: "\f15c"; /* file-lines */
+}
+
+.catat .icon-placeholder::before {
+    content: "\f304"; /* pen */
+}
+
+.cek .icon-placeholder::before {
+    content: "\f46c"; /* clipboard-check */
+}
+
+.draft .icon-placeholder::before {
+    content: "\f002"; /* magnifying glass */
+}
+
+.arsip .icon-placeholder::before {
+    content: "\f07c"; /* folder-open */
+}
+
+.unduh .icon-placeholder::before {
+    content: "\f02f"; /* print */
+}
+
 /* BOTTOM NAV */
-.bottom-nav {
-    position: absolute;
-    bottom: 20px;
-    width: 24%;
-    height: 55px;              /* Tinggi fix lebih kecil */
+.bottom-nav{
+    /* position:fixed;
+    bottom:0;
+    width:100%;
+    height:55px;
+    background:white;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    border-top:1px solid #ddd;
+    border-radius:0 0 25px 25px; */
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    width: 360px; /* samakan dengan ukuran mobile container */
+    height: 60px;
+
     background: white;
     display: flex;
     justify-content: space-around;
-    align-items: center;       /* Center vertical */
-    border-top: 1px solid #e0e0e0;
-    border-radius: 0 0 25px 25px;
-    box-shadow: 0 -3px 15px rgba(0,0,0,0.05);
+    align-items: center;
+
+    border-top: 1px solid #ddd;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
+    z-index: 999;
 }
 
 .nav-icon {
@@ -167,4 +225,23 @@ body {
 
 .active {
     color: #1686b3;
+}
+
+.profile-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-icon::before {
+    content: "\f007"; /* Font Awesome user icon */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    color: white;
+    font-size: 20px;
 }
